@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-item>
+    <ion-button fill="outline" color="warning" size="small" shape="round" routerLink="/listagem/">voltar</ion-button>
+    <ion-title color="warning">📋Detalhes</ion-title>
+  </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item color="warning" *ngIf="!modoDeEdicao">{{produtoSelecionado.nome}}</ion-item>
+  <ion-item color="success" *ngIf="!modoDeEdicao">R$ {{produtoSelecionado.valor}}</ion-item>
+  
+  <ion-button fill="outline" color="warning" size="small" *ngIf="!modoDeEdicao" shape="round" expand="full" (click)="iniciarEdicao()">Alterar Detalhes</ion-button>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+      <ion-fab-button color="warning" (click)="deletarServico()" routerLink="/detalhes/"><ion-icon name="trash-sharp"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<form *ngIf="modoDeEdicao" (ngSubmit)="encerrarEdicao()">
+  <ion-label color="warning">Nome:</ion-label>
+  <ion-input [(ngModel)]="produtoSelecionado.nome" name="nome"></ion-input>
+  <ion-label color="warning">Valor:</ion-label>
+  <ion-input [(ngModel)]="produtoSelecionado.valor" name="valor"></ion-input>
+  <ion-button type="submit" fill="outline" color="warning" size="small" shape="round">trocar</ion-button>
+</form>
+
+
+
+
+
+
+
+
+
+

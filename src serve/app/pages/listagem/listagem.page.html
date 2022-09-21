@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-item>
+    <ion-button fill="outline" color="warning" size="small" shape="round" routerLink="/home/">voltar</ion-button>
+    <ion-title color="warning">🧰Produtos</ion-title>
+  </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let todosDados of todosDados" routerLink="/detalhes/{{todosDados.id}}">
+    <ion-label color="warning">{{todosDados.nome}}</ion-label>
+    <ion-label color="warning">Quant:{{todosDados.quantidade}}</ion-label>
+    <ion-label color="success">R$ {{todosDados.valor}}</ion-label>
+  </ion-item>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button color="warning">
+      <ion-icon name="construct-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button routerLink="/detalhes/-1"><ion-icon name="add-sharp"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="deletarServico()" routerLink="/detalhes/"><ion-icon name="trash-sharp"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+</ion-content>
+
